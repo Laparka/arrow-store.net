@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  dynamodb-local:
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+    command: >
+        sh -c "sleep 3 && \
+            -jar DynamoDBLocal.jar -inMemory -dbPath ./data && \
+            aws dynamodb create-table \
+            --table-name YourTableName \
+            --attribute-definitions \
+            AttributeName=record_type_id,AttributeType=S \
+            AttributeName=record_id,AttributeType=S \
+            --key-schema \
+            AttributeName=record_type_id,KeyType=HASH \
+            AttributeName=record_id,KeyType=RANGE \
+            --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
+            --endpoint-url http://dynamodb-local:8000 && \
+            tail -f /dev/null"
