@@ -1,3 +1,9 @@
+<p align="center">
+	<a href="https://www.nuget.org/packages/ArrowStore/"><img src="arrow-store.png" width="150" /></a>
+</p>
+
+<h1 align="center">ArrowStore</h1>
+
 # Introduction
 Welcome to the documentation for ArrowStore, an Object-Relational Mapping (ORM) library for DynamoDB in .NET Core. ArrowStore simplifies the process of accessing and manipulating data in DynamoDB by providing a convenient API and leveraging the power of Linq expressions.
 
@@ -15,6 +21,10 @@ To start using ArrowStore in your .NET Core projects, you need to install the Ar
 
 # Installation
 To use ArrowStore in your .NET Core projects, you need to install the ArrowStore NuGet package. Follow the steps below to add the package to your project:
+
+```
+dotnet add package ArrowStore --version 1.0.0
+```
 
 Once the package is installed, you can start using ArrowStore in your code by importing the necessary namespaces and configuring the library, as explained in the next sections.
 
