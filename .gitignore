@@ -3,3 +3,4 @@ ArrowStore/.vs/
 ArrowStore/ArrowStore.sln.*
 **/bin/
 **/obj/
+.idea/
